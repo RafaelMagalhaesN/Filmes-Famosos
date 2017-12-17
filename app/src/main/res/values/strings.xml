@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Movies</string>
+    <string name="error">Error, try again :,(</string>
+    <string name="movie">Movie</string>
+    <string name="movies_pop">Popular Movies</string>
+    <string name="movies_rating">Highest Rating</string>
+    <string name="title">Title</string>
+    <string name="overview">Overview</string>
+    <string name="year">Year</string>
+    <string name="average">0.0</string>
+</resources>
