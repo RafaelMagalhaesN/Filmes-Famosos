@@ -13,7 +13,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -296,8 +295,6 @@ public class MainActivity extends AppCompatActivity
         protected void onPostExecute(Movies movies) {
             super.onPostExecute(movies);
             mBinding.pbLoadingIndicator.setVisibility(View.INVISIBLE);
-
-            Log.e("aaaa", ""+movies.getMovies().size());
 
             if (movies != null && movies.getMovies().size() > 0) {
                 setRecyclerViewVisible();
