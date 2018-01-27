@@ -5,7 +5,7 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Movie implements Parcelable{
+public class Movie implements Parcelable {
 
     @SerializedName("vote_count")
     private long voteCount;
@@ -46,6 +46,27 @@ public class Movie implements Parcelable{
     @SerializedName("release_date")
     private String releaseDate;
 
+    private boolean inStorage;
+
+    public Movie() {
+    }
+
+    public Movie(long voteCount, long id, boolean video, float voteAverage, String title, float popularity, String posterPath, String originalLanguage, String originalTitle, String backdropPath, boolean adult, String overview, String releaseDate, boolean inStorage) {
+        this.voteCount = voteCount;
+        this.id = id;
+        this.video = video;
+        this.voteAverage = voteAverage;
+        this.title = title;
+        this.popularity = popularity;
+        this.posterPath = posterPath;
+        this.originalLanguage = originalLanguage;
+        this.originalTitle = originalTitle;
+        this.backdropPath = backdropPath;
+        this.adult = adult;
+        this.overview = overview;
+        this.releaseDate = releaseDate;
+        this.inStorage = inStorage;
+    }
 
     protected Movie(Parcel in) {
         voteCount = in.readLong();
@@ -61,6 +82,7 @@ public class Movie implements Parcelable{
         adult = in.readByte() != 0;
         overview = in.readString();
         releaseDate = in.readString();
+        inStorage = in.readByte() != 0;
     }
 
     @Override
@@ -78,6 +100,7 @@ public class Movie implements Parcelable{
         dest.writeByte((byte) (adult ? 1 : 0));
         dest.writeString(overview);
         dest.writeString(releaseDate);
+        dest.writeByte((byte) (inStorage ? 1 : 0));
     }
 
     @Override
@@ -98,6 +121,36 @@ public class Movie implements Parcelable{
         }
     };
 
+
+    public long getId() {
+        return id;
+    }
+
+    public void setIsInStorage(boolean inStorage) {
+        this.inStorage = inStorage;
+    }
+
+    public long getVoteCount() {
+        return voteCount;
+    }
+
+
+    public String getTitle() {
+        return title;
+    }
+
+    public float getPopularity() {
+        return popularity;
+    }
+
+    public String getOriginalLanguage() {
+        return originalLanguage;
+    }
+
+    public String getBackdropPath() {
+        return backdropPath;
+    }
+
     public float getVoteAverage() {
         return voteAverage;
     }
@@ -116,6 +169,10 @@ public class Movie implements Parcelable{
 
     public String getReleaseDate() {
         return releaseDate;
+    }
+
+    public boolean isInStorage() {
+        return inStorage;
     }
 
 }

@@ -31,8 +31,37 @@ public class NetworkUtils {
     }
 
 
-    public static URL buildURL(String param) {
+    public static URL buildURL(String param, int page) {
         Uri.Builder uriBuilder = Uri.parse(Constants.URL_BASE+""+param).buildUpon();
+        uriBuilder.appendQueryParameter(Constants.Q_API_KEY, Constants.API_KEY);
+        uriBuilder.appendQueryParameter(Constants.Q_LANGUAGE, Constants.LANGUAGE);
+        uriBuilder.appendQueryParameter(Constants.Q_PAGE, String.valueOf(page));
+        Uri uri = uriBuilder.build();
+        URL url = null;
+        try {
+            url = new URL(uri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
+
+    public static URL buildReviewURL(String id) {
+        Uri.Builder uriBuilder = Uri.parse(Constants.URL_BASE+ Constants.MOVIE +"/"+ id +"/"+ Constants.Q_REVIEWS).buildUpon();
+        uriBuilder.appendQueryParameter(Constants.Q_API_KEY, Constants.API_KEY);
+        uriBuilder.appendQueryParameter(Constants.Q_LANGUAGE, Constants.LANGUAGE);
+        Uri uri = uriBuilder.build();
+        URL url = null;
+        try {
+            url = new URL(uri.toString());
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        return url;
+    }
+
+    public static URL buildVideoURL(String id) {
+        Uri.Builder uriBuilder = Uri.parse(Constants.URL_BASE+ Constants.MOVIE +"/"+ id +"/"+ Constants.Q_VIDEOS).buildUpon();
         uriBuilder.appendQueryParameter(Constants.Q_API_KEY, Constants.API_KEY);
         uriBuilder.appendQueryParameter(Constants.Q_LANGUAGE, Constants.LANGUAGE);
         Uri uri = uriBuilder.build();

@@ -4,7 +4,7 @@ package rmagalhaes.com.br.filmesfamosos.utils;
 public class Constants {
 
     /* API KEY HERE */
-    public static final String API_KEY = "-";
+    public static final String API_KEY = "b87ddb39e2356a388ec0a1876b4f9931";
 
 
     public static final String URL_BASE = "https://api.themoviedb.org/3/";
@@ -15,7 +15,14 @@ public class Constants {
     public static final String MOVIES_NOW_PLAYING = "movie/now_playing";
     public static final String MOVIES_POPULAR = "movie/popular";
     public static final String MOVIES_TOP_RATED = "movie/top_rated";
+    public static final String MOVIE = "movie";
     public static final String Q_API_KEY = "api_key";
     public static final String MOVIES = "movies";
+    public static final String Q_PAGE = "page";
+    public static final String Q_REVIEWS = "reviews";
+    public static final String Q_VIDEOS = "videos";
     public static final String RV_STATE = "recyclerViewState";
+    public static final String PAGE_STATE = "page_state";
+    public static final String SCROLL_STATE = "scroll_state";
+    public static final String YOUTUBE_URL = "https://www.youtube.com/watch?v=";
 }

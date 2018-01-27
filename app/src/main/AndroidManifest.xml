@@ -30,6 +30,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <provider
+            android:authorities="rmagalhaes.com.br.filmesfamosos"
+            android:name=".data.MoviesContentProvider"
+            android:exported="false"/>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package rmagalhaes.com.br.filmesfamosos.adapters;
 
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -54,20 +55,21 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MoviesView
 
     public void setMoviesData(ArrayList<Movie> movies) {
         this.movies = movies;
-        notifyDataSetChanged();
     }
 
 
     public class MoviesViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         final ImageView moviesView;
+        final CardView cardImage;
         final View view;
 
         MoviesViewHolder(View itemView) {
             super(itemView);
             view = itemView;
-            moviesView = itemView.findViewById(R.id.movie_card);
-            itemView.setOnClickListener(this);
+            moviesView = itemView.findViewById(R.id.imgMovieCard);
+            cardImage = itemView.findViewById(R.id.cardImage);
+            cardImage.setOnClickListener(this);
         }
 
         void setImage() {
