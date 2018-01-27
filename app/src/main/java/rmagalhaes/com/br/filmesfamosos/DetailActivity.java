@@ -56,6 +56,7 @@ public class DetailActivity extends AppCompatActivity{
         mBinding.rvReviews.setAdapter(mReviewAdapter);
         mBinding.rvTrailers.setAdapter(mVideoAdapter);
 
+
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra(Intent.EXTRA_REFERRER)) {
             Movie movie = intent.getParcelableExtra(Intent.EXTRA_REFERRER);
@@ -84,6 +85,7 @@ public class DetailActivity extends AppCompatActivity{
 
     private void setDetails(final Movie movie) {
         this.mMovie = movie;
+
 
         String imageUrl = movie.getPosterPath();
         String title = movie.getOriginalTitle();
