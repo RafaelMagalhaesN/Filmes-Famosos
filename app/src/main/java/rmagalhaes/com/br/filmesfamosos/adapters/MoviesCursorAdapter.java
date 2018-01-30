@@ -99,7 +99,6 @@ public class MoviesCursorAdapter extends RecyclerView.Adapter<MoviesCursorAdapte
         public void onClick(View v) {
             int adapterPosition = getAdapterPosition();
             Movie movie = MoviesActions.cursorToMovieObject(mCursor, adapterPosition);
-            Log.e("aaa", ""+movie.getId());
             mClickListener.onClick(movie);
         }
     }

@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
+import android.util.Log;
 
 import rmagalhaes.com.br.filmesfamosos.models.Movie;
 
@@ -28,6 +29,13 @@ public class MoviesActions {
         contentValues.put(MoviesContract.MoviesEntry.COLUMN_BACKDROP_PATH, movie.getBackdropPath());
         context.getContentResolver().insert(MoviesContract.MoviesEntry.CONTENT_URI, contentValues);
 
+    }
+
+    public static boolean isInStorage(String movieId, Context context) {
+        Cursor cursor = context.getContentResolver().query(MoviesContract.MoviesEntry.CONTENT_URI, null,
+                MoviesContract.MoviesEntry.COLUMN_MOVIE_ID +" = '"+ movieId + "'",
+                null, null);
+        return cursor != null && cursor.getCount() > 0;
     }
 
     public static void onDisfavor(Movie movie, Context context) {

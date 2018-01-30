@@ -62,8 +62,6 @@ public class DetailActivity extends AppCompatActivity{
             Movie movie = intent.getParcelableExtra(Intent.EXTRA_REFERRER);
             setDetails(movie);
         }
-
-
     }
 
 
@@ -105,10 +103,13 @@ public class DetailActivity extends AppCompatActivity{
         mBinding.average.setText(ratingText);
         setButtonStyle(movie.isInStorage());
 
+        final boolean isInStorage = MoviesActions.isInStorage(Long.toString(movie.getId()), this);
+        movie.setIsInStorage(isInStorage);
+        setButtonStyle(isInStorage);
         mBinding.buttonFavorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (movie.isInStorage()) {
+                if (isInStorage) {
                     onMovieDisfavor();
                 } else {
                     onMovieFavorite();

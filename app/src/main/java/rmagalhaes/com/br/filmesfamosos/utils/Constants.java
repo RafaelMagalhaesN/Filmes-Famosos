@@ -4,7 +4,7 @@ package rmagalhaes.com.br.filmesfamosos.utils;
 public class Constants {
 
     /* API KEY HERE */
-    public static final String API_KEY = "";
+    public static final String API_KEY = "b87ddb39e2356a388ec0a1876b4f9931";
 
 
     public static final String URL_BASE = "https://api.themoviedb.org/3/";

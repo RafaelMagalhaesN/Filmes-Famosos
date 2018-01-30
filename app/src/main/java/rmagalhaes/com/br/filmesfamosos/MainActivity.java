@@ -72,6 +72,14 @@ public class MainActivity extends AppCompatActivity
 
         initEndlessRecyclerViewScroll(gridLayoutManager);
 
+        if (mCurrentApiType == LOCAL) {
+            setTitle(getResources().getString(R.string.action_bar_title_favorite));
+        } else if (mCurrentApiType == POPULARITY) {
+            setTitle(getResources().getString(R.string.action_bar_title_popular));
+        } else if (mCurrentApiType == TOP_RATED) {
+            setTitle(getResources().getString(R.string.action_bar_title_highest));
+        }
+
         if (savedInstanceState == null) {
             if (mCurrentApiType != LOCAL) {
                 new FetchMovies().execute(mCurrentApiType);
@@ -150,18 +158,21 @@ public class MainActivity extends AppCompatActivity
         mMovies.clear();
         mCurrentPage = 1;
 
-        if (id == R.id.rating) {
+        if (id == R.id.favorites) {
+            setTitle(getResources().getString(R.string.action_bar_title_favorite));
+            mBinding.recyclerView.setAdapter(mMoviesCursorAdapter);
+            mCurrentApiType = LOCAL;
+            getSupportLoaderManager().initLoader(TASK_LOADER_ID, null, this);
+        } else if (id == R.id.rating) {
+            setTitle(getResources().getString(R.string.action_bar_title_highest));
             mCurrentApiType = TOP_RATED;
             mBinding.recyclerView.setAdapter(mMoviesAdapter);
             new FetchMovies().execute(mCurrentApiType);
         } else if (id == R.id.popularity) {
+            setTitle(getResources().getString(R.string.action_bar_title_popular));
             mCurrentApiType = POPULARITY;
             mBinding.recyclerView.setAdapter(mMoviesAdapter);
             new FetchMovies().execute(mCurrentApiType);
-        } else if (id == R.id.favorites) {
-            mBinding.recyclerView.setAdapter(mMoviesCursorAdapter);
-            mCurrentApiType = LOCAL;
-            getSupportLoaderManager().initLoader(TASK_LOADER_ID, null, this);
         }
 
         return super.onOptionsItemSelected(item);

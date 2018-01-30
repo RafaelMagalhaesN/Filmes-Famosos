@@ -15,4 +15,7 @@
     <string name="error_favorite">No favorite movies currently available.\nTry changing to another rating from the menu above </string>
     <string name="play">Play Trailer</string>
     <string name="lorem" translatable="false">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed mi metus. In sed nunc nisl. Cras semper massa massa, vel cursus quam efficitur non. Praesent purus ante, euismod a feugiat vitae, bibendum et ex. Integer malesuada varius metus, finibus efficitur erat accumsan id. Pellentesque finibus ligula lacus. Nullam sit amet dolor nisi. Phasellus nec interdum lorem. Aliquam ut mi sed nunc fringilla aliquam. Proin elementum neque ut magna tincidunt convallis. Nunc et purus sit amet enim mattis faucibus nec non dui.</string>
+    <string name="action_bar_title_favorite">FAVORITES TITLES</string>
+    <string name="action_bar_title_highest">HIGHEST RATED TITLES</string>
+    <string name="action_bar_title_popular">POPULAR TITLES</string>
 </resources>
